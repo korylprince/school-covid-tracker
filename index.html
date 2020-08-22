@@ -6,6 +6,37 @@
         <meta name="description" content="COVID-19 Tracking">
         <meta name="author" content="Kory Prince <korylprince@gmail.com>">
         <style type="text/css">
+            #loader {
+                position: absolute;
+                width: 100%;
+                height: 100vh;
+                max-width: 100vw;
+                max-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #loader img {
+                flex: 1;
+                width: 100%;
+                max-width: 100px;
+                max-height: 100px;
+                animation:spin 1s linear infinite;
+                transform: rotate(45deg);
+                /* #003595 */
+                filter: invert(15%) sepia(69%) saturate(3834%) hue-rotate(215deg) brightness(84%) contrast(103%);
+            }
+            @keyframes spin {
+                100% {
+                    transform: rotate(405deg);
+                }
+            }
+            .loading {
+                overflow: hidden;
+            }
+            .loading #wrapper {
+                opacity: 0;
+            }
             #chart {
                 margin-bottom: 30px;
             }
@@ -43,39 +74,44 @@
         </style>
     </head>
 
-    <body>
-        <canvas id="chart"></canvas>
+    <body class="loading">
+        <div id="loader">
+            <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/loading.svg">
+        </div>
+        <div id="wrapper">
+            <canvas id="chart"></canvas>
 
-        <div class="grid">
-            <div class="total">
-                <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/human-greeting.svg">
-                <div class="number" ref="Total Students"></div>
-                <div>Total Students</div>
-            </div>
-            <div class="total">
-                <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/teach.svg">
-                <div class="number" ref="Total Staff"></div>
-                <div>Total Staff</div>
-            </div>
-            <div class="exposed">
-                <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
-                <div class="number" ref="Exposed Students"></div>
-                <div>Total Exposed Students</div>
-            </div>
-            <div class="exposed">
-                <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
-                <div class="number" ref="Exposed Staff"></div>
-                <div>Total Exposed Staff</div>
-            </div>
-            <div class="positive">
-                <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
-                <div class="number" ref="Positive Students"></div>
-                <div>Total Students with Positive Cases</div>
-            </div>
-            <div class="positive">
-                <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
-                <div class="number" ref="Positive Staff"></div>
-                <div>Total Staff with Positive Cases</div>
+            <div class="grid">
+                <div class="total">
+                    <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/human-greeting.svg">
+                    <div class="number" ref="Total Students"></div>
+                    <div>Total Students</div>
+                </div>
+                <div class="total">
+                    <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/teach.svg">
+                    <div class="number" ref="Total Staff"></div>
+                    <div>Total Staff</div>
+                </div>
+                <div class="exposed">
+                    <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
+                    <div class="number" ref="Exposed Students"></div>
+                    <div>Total Exposed Students</div>
+                </div>
+                <div class="exposed">
+                    <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
+                    <div class="number" ref="Exposed Staff"></div>
+                    <div>Total Exposed Staff</div>
+                </div>
+                <div class="positive">
+                    <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
+                    <div class="number" ref="Positive Students"></div>
+                    <div>Total Students with Positive Cases</div>
+                </div>
+                <div class="positive">
+                    <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
+                    <div class="number" ref="Positive Staff"></div>
+                    <div>Total Staff with Positive Cases</div>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -189,6 +225,8 @@
                         ],
                     },
                 })
+                document.querySelector("#loader").remove()
+                document.querySelector(".loading").classList.remove("loading")
             }
             window.onload = function() {main()}
         </script>
