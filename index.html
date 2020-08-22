@@ -160,7 +160,7 @@
                         },
                     },
                     data: {
-                        labels: chart_data.map(val => val.Campus),
+                        labels: chart_data.map(val => val.Campus).map(val => val.split(" ")),
                         datasets: [
                             {
                                 label: "Exposed Students",
