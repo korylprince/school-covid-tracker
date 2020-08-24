@@ -71,6 +71,12 @@
                 /* #cf102d */
                 filter: invert(16%) sepia(50%) saturate(7498%) hue-rotate(344deg) brightness(82%) contrast(99%);
             }
+            #asof {
+                font-family: Sans;
+                float: right;
+                margin-top: 50px;
+                margin-right: 20px;
+            }
         </style>
     </head>
 
@@ -94,13 +100,13 @@
                 </div>
                 <div class="exposed">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
-                    <div class="number" ref="Exposed Students"></div>
-                    <div>Total Exposed Students</div>
+                    <div class="number" ref="Exposed/Symptomatic Students"></div>
+                    <div>Total Exposed/Symptomatic Students</div>
                 </div>
                 <div class="exposed">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
-                    <div class="number" ref="Exposed Staff"></div>
-                    <div>Total Exposed Staff</div>
+                    <div class="number" ref="Exposed/Symptomatic Staff"></div>
+                    <div>Total Exposed/Symptomatic Staff</div>
                 </div>
                 <div class="positive">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
@@ -113,6 +119,7 @@
                     <div>Total Staff with Positive Cases</div>
                 </div>
             </div>
+            <div id="asof">Last Updated: <span ref="As of Date"></span></div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script type="text/javascript">
@@ -140,6 +147,7 @@
                 const agg_data = parse(await (await fetch(agg_url)).text())[0]
 
                 for (const entry of Object.entries(agg_data)) {
+                    console.log(entry)
                     document.querySelector(`[ref="${entry[0]}"]`).innerHTML = entry[1]
                 }
 
@@ -199,14 +207,14 @@
                         labels: chart_data.map(val => val.Campus).map(val => val.split(" ")),
                         datasets: [
                             {
-                                label: "Exposed Students",
-                                data: chart_data.map(val => val["Exposed Students"]),
+                                label: "Exposed/Symptomatic Students",
+                                data: chart_data.map(val => val["Exposed/Symptomatic Students"]),
                                 backgroundColor: "#003595",
                                 stack: "Exposed",
                             },
                             {
-                                label: "Exposed Staff",
-                                data: chart_data.map(val => val["Exposed Staff"]),
+                                label: "Exposed/Symptomatic Staff",
+                                data: chart_data.map(val => val["Exposed/Symptomatic Staff"]),
                                 backgroundColor: "#4e5ec6",
                                 stack: "Exposed",
                             },

@@ -10,7 +10,7 @@ This is a simple COVID-19 tracking page for school districts. The data is pulled
 
 * Upload [template.ods](https://raw.githubusercontent.com/korylprince/school-covid-tracker/master/template.ods) to Google Sheets and convert it to a Google Sheet
 * Edit the Campus names and counts on the Data Sheet
-* Edit the student and staff count on the Aggregation Sheet
+* Edit the student and staff count and As of Date on the Aggregation Sheet
 * Share the Google Sheet to "Anyone on the internet with this link can view"
 * Copy the ID from the Google Sheets URL.
   * **Example (ID is bold)**: <pre>https&#58;//docs.google.com/spreadsheets/d/<strong>1yW36B71Ze0rGHd0oukeXfZFqP_4YqtdJDTGrfp8otRk</strong>/edit#gid=0</pre>
