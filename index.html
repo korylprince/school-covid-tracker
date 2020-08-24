@@ -44,7 +44,7 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-gap: 20px;
-                font-family: Sans;
+                font-family: Arial, Helvetica, sans-serif;
             }
             .grid div {
                 text-align: center;
@@ -72,7 +72,7 @@
                 filter: invert(16%) sepia(50%) saturate(7498%) hue-rotate(344deg) brightness(82%) contrast(99%);
             }
             #asof {
-                font-family: Sans;
+                font-family: Arial, Helvetica, sans-serif;
                 float: right;
                 margin-top: 50px;
                 margin-right: 20px;
@@ -101,22 +101,22 @@
                 <div class="exposed">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
                     <div class="number" ref="Exposed/Symptomatic Students"></div>
-                    <div>Total Exposed/Symptomatic Students</div>
+                    <div>Current Exposed/Symptomatic Students</div>
                 </div>
                 <div class="exposed">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/face-mask-outline.svg">
                     <div class="number" ref="Exposed/Symptomatic Staff"></div>
-                    <div>Total Exposed/Symptomatic Staff</div>
+                    <div>Current Exposed/Symptomatic Staff</div>
                 </div>
                 <div class="positive">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
                     <div class="number" ref="Positive Students"></div>
-                    <div>Total Students with Positive Cases</div>
+                    <div>Current Students with Positive Cases</div>
                 </div>
                 <div class="positive">
                     <img src="https://cdn.jsdelivr.net/npm/@mdi/svg@5.5.55/svg/virus-outline.svg">
                     <div class="number" ref="Positive Staff"></div>
-                    <div>Total Staff with Positive Cases</div>
+                    <div>Current Staff with Positive Cases</div>
                 </div>
             </div>
             <div id="asof">Last Updated: <span ref="As of Date"></span></div>
@@ -188,10 +188,8 @@
                         responseive: true,
                         scales: {
                             xAxes: [{
-                                stacked: true,
                             }],
                             yAxes: [{
-                                stacked: true,
                                 ticks: {
                                     max: max_height,
                                 },
@@ -210,25 +208,21 @@
                                 label: "Exposed/Symptomatic Students",
                                 data: chart_data.map(val => val["Exposed/Symptomatic Students"]),
                                 backgroundColor: "#003595",
-                                stack: "Exposed",
                             },
                             {
                                 label: "Exposed/Symptomatic Staff",
                                 data: chart_data.map(val => val["Exposed/Symptomatic Staff"]),
-                                backgroundColor: "#4e5ec6",
-                                stack: "Exposed",
+                                backgroundColor: "#838bfa",
                             },
                             {
                                 label: "Positive Students",
                                 data: chart_data.map(val => val["Positive Students"]),
                                 backgroundColor: "#cf102d",
-                                stack: "Positive",
                             },
                             {
                                 label: "Positive Staff",
                                 data: chart_data.map(val => val["Positive Staff"]),
-                                backgroundColor: "#ff5556",
-                                stack: "Positive",
+                                backgroundColor: "#ff8983",
                             },
                         ],
                     },
