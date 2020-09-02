@@ -152,7 +152,6 @@
                 const agg_data = parse(await (await fetch(agg_url)).text())[0]
 
                 for (const entry of Object.entries(agg_data)) {
-                    console.log(entry)
                     document.querySelector(`[ref="${entry[0]}"]`).innerHTML = entry[1]
                 }
 
