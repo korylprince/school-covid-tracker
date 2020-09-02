@@ -131,7 +131,9 @@
             function parse(csv) {
                 const data = []
                 const lines = csv.split("\n")
-                const header = JSON.parse(`[${lines[0]}]`)
+                const header = JSON.parse(`[${lines[0]}]`).filter(h => {
+                    return h != "" && h != null
+                })
                 for (const line of lines.slice(1)) {
                     const item = Object.fromEntries(header.map((_, i) => [header[i], JSON.parse(`[${line}]`)[i]]))
                     data.push(item)
