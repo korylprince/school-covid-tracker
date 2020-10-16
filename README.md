@@ -2,6 +2,8 @@
 
 This is a simple COVID-19 tracking page for school districts. The data is pulled from a Google Sheet.
 
+For a modified version that tracks Exposed and Symptomatic students and staff separately, see [school-covid-tracker-split](https://github.com/korylprince/school-covid-tracker-split).
+
 ## Example
 
 ![Example Screenshot](https://raw.githubusercontent.com/korylprince/school-covid-tracker/master/screenshot.png)
@@ -15,8 +17,8 @@ This is a simple COVID-19 tracking page for school districts. The data is pulled
 * Share the Google Sheet to "Anyone on the internet with this link can view"
 * Copy the ID from the Google Sheets URL.
   * **Example (ID is bold)**: <pre>https&#58;//docs.google.com/spreadsheets/d/<strong>1yW36B71Ze0rGHd0oukeXfZFqP_4YqtdJDTGrfp8otRk</strong>/edit#gid=0</pre>
-* Insert ID and District Name into the template URL: <pre>https&#58;//korylprince.github.io/school-covid-tracker/?district=<strong>{district name}</strong>&id=<strong>{id}</strong></pre>
-  * **Example**: <https://korylprince.github.io/school-covid-tracker/?district=Example%20District&id=1yW36B71Ze0rGHd0oukeXfZFqP_4YqtdJDTGrfp8otRk>
+* Insert ID and District Name into the template URL: <pre>https&#58;//korylprince.github.io/school-covid-tracker/index.html?district=<strong>{district name}</strong>&id=<strong>{id}</strong></pre>
+  * **Example**: <https://korylprince.github.io/school-covid-tracker/index.html?district=Example%20District&id=1yW36B71Ze0rGHd0oukeXfZFqP_4YqtdJDTGrfp8otRk>
   * **Note**: Use `%20` in place of spaces in the District Name
 * Add link to your website, or embed the page on your website (see below)
 
@@ -27,9 +29,9 @@ Replace `{district name}` and `{id}` using the instructions above. Adjust the wi
 ```html
 <div id="covid-wrapper" style="width: 100%; height: 100%; overflow: scroll;">
 
-<iframe src="https://korylprince.github.io/school-covid-tracker/?district={district name}&id={id}" style="border: none; width: 710px; height: 1375px;"></iframe>
+<iframe src="https://korylprince.github.io/school-covid-tracker/index.html?district={district name}&id={id}" style="border: none; width: 710px; height: 1375px;"></iframe>
 </div>
-<div>If you have issues viewing the tracker, <a href="https://korylprince.github.io/school-covid-tracker/?district={district name}&id={id}">click here</a>.</div>
+<div>If you have issues viewing the tracker, <a href="https://korylprince.github.io/school-covid-tracker/index.html?district={district name}&id={id}">click here</a>.</div>
 ```
 
 # Uses
